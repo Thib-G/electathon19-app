@@ -12,7 +12,11 @@
             v-for="list in entity.values"
             :key="list.key"
             header-tag="header"
-            class="mt-2">
+            class="mt-2"
+            :style="{
+              'border-color': list.color,
+              'border-width': '3px',
+            }">
             <div slot="header">
               <span class="dot mr-1" :style="{ 'background-color': list.color }"></span>
               {{ list.key }}
