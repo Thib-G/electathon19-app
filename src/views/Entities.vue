@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Results (TEST)</h1>
+    <h1>Entities</h1>
     <b-card>
       <b-row>
         <b-col md="6" sm="12">
@@ -10,7 +10,7 @@
             label-for="input-1"
           >
             <b-form-select
-              @change="getResults"
+              @change="getEntities"
               id="input-1"
               v-model="selected"
               :options="options"
@@ -22,7 +22,7 @@
       </b-row>
       <b-row>
         <b-col>
-          <b-table :items="results" class="small-text" small />
+          <b-table :items="entities" class="small-text" small />
         </b-col>
       </b-row>
     </b-card>
@@ -38,21 +38,21 @@ export default {
       electathonService: ElectathonService,
       selected: null,
       options: ElectathonService.types,
-      resultsObj: null,
+      entitiesObj: null,
     };
   },
   computed: {
-    results() {
-      if (!this.resultsObj) {
+    entities() {
+      if (!this.entitiesObj) {
         return [];
       }
-      return Object.keys(this.resultsObj).map(k => this.resultsObj[k]);
+      return Object.keys(this.entitiesObj).map(k => this.entitiesObj[k]);
     },
   },
   methods: {
-    getResults() {
+    getEntities() {
       this.electathonService.getEntities(this.selected).then((data) => {
-        this.resultsObj = data;
+        this.entitiesObj = data;
       });
     },
   },

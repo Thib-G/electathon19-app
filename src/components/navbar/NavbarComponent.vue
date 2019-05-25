@@ -6,10 +6,14 @@
 
     <b-collapse id="nav-collapse" is-nav>
       <b-navbar-nav>
-        <b-nav-item to="/" active-class="active" exact>Home</b-nav-item>
-        <b-nav-item to="/candidates" active-class="active" exact>Candidates</b-nav-item>
-        <b-nav-item to="/results" active-class="active" exact>Results</b-nav-item>
-        <b-nav-item to="/about" active-class="active" exact>About</b-nav-item>
+        <b-nav-item
+          v-for="r in $router.options.routes"
+          :key="r.name"
+          :to="r.path"
+          active-class="active"
+          exact>
+          {{ r.meta.longName }}
+        </b-nav-item>
       </b-navbar-nav>
     </b-collapse>
   </b-navbar>

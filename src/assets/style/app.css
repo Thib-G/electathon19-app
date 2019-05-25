@@ -3,6 +3,10 @@ html, body {
   font-family: Nunito, Arial, Helvetica, sans-serif;
 }
 
+.small-text {
+  font-size: 70%;
+}
+
 /* nunito-regular - latin */
 @font-face {
   font-family: 'Nunito';

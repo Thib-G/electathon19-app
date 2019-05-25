@@ -53,22 +53,13 @@ import ElectathonService from '@/services/electathon-service';
 
 import CandidatesList from '@/components/CandidatesList.vue';
 
-const options = [
-  { value: 'CK', text: 'Chambre / Kamer' },
-  { value: 'VL', text: 'Parlement flamand / Vlaams Parlement' },
-  { value: 'WL', text: 'Parlement régional wallon / Waals Parlement' },
-  { value: 'BR', text: 'Parlement de la Région de Bruxelles-Capitale / Brussels Hoofdstedelijk Parlement' },
-  { value: 'DE', text: 'Parlement de la Communauté germanophone / Parlement van de Duitstalige Gemeenschap' },
-  { value: 'EU', text: 'Parlement européen / Europese Parlement' },
-];
-
 export default {
   data() {
     return {
       electathonService: ElectathonService,
       selected: null,
       selectedEntity: null,
-      options,
+      options: ElectathonService.types,
       candidatesObj: null,
     };
   },

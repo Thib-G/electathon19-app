@@ -11,21 +11,46 @@ export default new Router({
     {
       path: '/',
       name: 'home',
+      meta: {
+        menu: true,
+        longName: 'Home',
+      },
       component: Home,
+    },
+    {
+      path: '/entities',
+      name: 'entities',
+      meta: {
+        menu: true,
+        longName: 'Entities',
+      },
+      component: () => import(/* webpackChunkName: "entities" */ './views/Entities.vue'),
     },
     {
       path: '/candidates',
       name: 'candidates',
+      meta: {
+        menu: true,
+        longName: 'Candidates',
+      },
       component: () => import(/* webpackChunkName: "candidates" */ './views/Candidates.vue'),
     },
     {
       path: '/results',
       name: 'results',
+      meta: {
+        menu: true,
+        longName: 'Results',
+      },
       component: () => import(/* webpackChunkName: "results" */ './views/Results.vue'),
     },
     {
       path: '/about',
       name: 'about',
+      meta: {
+        menu: true,
+        longName: 'About',
+      },
       // route level code-splitting
       // this generates a separate chunk (about.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
