@@ -3,7 +3,7 @@
     <h1>Candidates</h1>
     <b-card>
       <b-row>
-        <b-col>
+        <b-col md="6" sm="12">
           <b-form-group
             id="input-group-1"
             label="Select election type:"
@@ -19,7 +19,7 @@
             ></b-form-select>
           </b-form-group>
         </b-col>
-        <b-col>
+        <b-col md="6" sm="12">
           <b-form-group
             id="input-group-2"
             label="Select entity:"
