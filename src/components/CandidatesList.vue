@@ -23,11 +23,10 @@
             </div>
             <b-card-group deck>
               <b-card v-for="type in list.values" :key="type.key" :header="type.key">
-                <ul>
-                  <li v-for="c in type.values" :key="c.key">
-                    {{ c.value.nr }} {{ c.value.name }}
-                  </li>
-                </ul>
+                <div v-for="c in type.values" :key="c.key" class="mb-1">
+                  <CheckboxVoting :width="24" :height="24" />
+                  {{ c.value.nr }} {{ c.value.name }}
+                </div>
               </b-card>
             </b-card-group>
           </b-card>
@@ -39,6 +38,8 @@
 
 <script>
 import d3 from '@/assets/d3';
+
+import CheckboxVoting from '@/components/CheckboxVoting.vue';
 
 export default {
   props: {
@@ -75,6 +76,9 @@ export default {
             })),
         }));
     },
+  },
+  components: {
+    CheckboxVoting,
   },
 };
 </script>
