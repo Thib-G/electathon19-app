@@ -82,6 +82,7 @@ export default {
           key: k,
           value: this.candidatesObj[k],
         }))
+        .sort((a, b) => a.value.type.localeCompare(b.value.type))
         .sort((a, b) => a.value.list.nr - b.value.list.nr)
         .sort((a, b) => a.value.list.entity.id - b.value.list.entity.id);
     },
