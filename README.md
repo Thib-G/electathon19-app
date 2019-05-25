@@ -1,5 +1,9 @@
 # electathon19-app
 
+## Demo
+
+https://thib-g.github.io/electathon19-app/
+
 ## Project setup
 ```
 npm install
