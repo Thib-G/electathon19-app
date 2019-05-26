@@ -19,7 +19,15 @@
             ></b-form-select>
           </b-form-group>
         </b-col>
-        <b-col md="6" sm="12">
+        <b-col md="6" sm="12" class="d-flex align-items-center justify-content-between">
+          <span v-if="loading">
+            Loading...
+          </span>
+          <span v-else>
+            <a href @click.prevent="getResults">
+              <img src="@/assets/icons/refresh.svg" width="15" height="15" class="mr-1">Refresh
+              </a>
+            </span>
           <b-checkbox v-model="isTest" @change="getResultsNextTick">Test data</b-checkbox>
         </b-col>
       </b-row>
@@ -54,6 +62,7 @@ export default {
       options: ElectathonService.types,
       resultsObj: null,
       isTest: false,
+      loading: false,
     };
   },
   computed: {
@@ -87,8 +96,10 @@ export default {
     },
     getResults() {
       if (this.selected) {
+        this.loading = true;
         this.electathonService.getResults(this.selected, this.isTest).then((data) => {
           this.resultsObj = data;
+          this.loading = false;
         });
       }
     },
