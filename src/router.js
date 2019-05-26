@@ -44,6 +44,16 @@ export default new Router({
       },
       component: () => import(/* webpackChunkName: "results" */ './views/Results.vue'),
     },
+    // {
+    //   path: '/detail-results',
+    //   name: 'detail-results',
+    //   meta: {
+    //     menu: true,
+    //     longName: 'Detailed results',
+    //   },
+    //   component: () =>
+    //   import(/* webpackChunkName: "detail-results" */ './views/DetailResults.vue'),
+    // },
     {
       path: '/about',
       name: 'about',

@@ -19,10 +19,22 @@
             ></b-form-select>
           </b-form-group>
         </b-col>
+        <b-col md="6" sm="12">
+          <b-checkbox v-model="isTest" @change="getResultsNextTick">Test data</b-checkbox>
+        </b-col>
       </b-row>
       <b-row>
         <b-col>
-          <b-table :items="results" class="small-text" small />
+          <b-card v-for="e in resultsNested" :key="e.key" :header="e.name">
+            <b-list-group>
+              <b-list-group-item v-for="l in e.values" :key="l.key">
+                <span class="dot mr-1"
+                  :style="{ 'background-color': `#${l.value.list.group.color}` }">
+                </span>
+                {{ l.value.list.name }}: <b>{{ l.value.seats }}</b> seats
+              </b-list-group-item>
+            </b-list-group>
+          </b-card>
         </b-col>
       </b-row>
     </b-card>
@@ -30,6 +42,8 @@
 </template>
 
 <script>
+import d3 from '@/assets/d3';
+
 import ElectathonService from '@/services/electathon-service';
 
 export default {
@@ -39,6 +53,7 @@ export default {
       selected: null,
       options: ElectathonService.types,
       resultsObj: null,
+      isTest: false,
     };
   },
   computed: {
@@ -46,14 +61,36 @@ export default {
       if (!this.resultsObj) {
         return [];
       }
-      return Object.keys(this.resultsObj).map(k => this.resultsObj[k]);
+      return Object.keys(this.resultsObj)
+        .map(k => ({
+          key: k,
+          value: this.resultsObj[k],
+        }))
+        .filter(d => d.key !== 'count' && d.key !== '');
+    },
+    resultsNested() {
+      return d3.nest()
+        .key(d => d.value.list.entity.id)
+        .entries(this.results)
+        .map(e => ({
+          key: e.key,
+          name: e.values[0].value.list.entity.name_en,
+          values: e.values.sort((a, b) => b.seats - a.seats),
+        }));
     },
   },
   methods: {
-    getResults() {
-      this.electathonService.getEntities(this.selected).then((data) => {
-        this.resultsObj = data;
+    getResultsNextTick() {
+      this.$nextTick(() => {
+        this.getResults();
       });
+    },
+    getResults() {
+      if (this.selected) {
+        this.electathonService.getResults(this.selected, this.isTest).then((data) => {
+          this.resultsObj = data;
+        });
+      }
     },
   },
 };

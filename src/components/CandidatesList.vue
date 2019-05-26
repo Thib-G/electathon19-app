@@ -82,13 +82,3 @@ export default {
   },
 };
 </script>
-
-<style>
-.dot {
-  height: 12px;
-  width: 12px;
-  background-color: #bbb;
-  border-radius: 50%;
-  display: inline-block;
-}
-</style>

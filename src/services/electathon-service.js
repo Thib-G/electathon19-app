@@ -12,15 +12,33 @@ const types = [
   { value: 'EU', text: 'Parlement européen / Europese Parlement' },
 ];
 
+const levels = [
+  { value: 'M', text: 'Bureau principal de commune / Gemeentehoofdbureau' },
+  { value: 'D', text: 'Bureau principal de district / Stadsdistricthoofdbureau' },
+  { value: 'K', text: 'Bureau principal de canton / Kantonhoofdbureau' },
+  { value: 'A', text: 'Bureau principal d’arrondissement / Arrondissementshoofdbureau' },
+  { value: 'C', text: 'Bureau principal de circonscription / Kieskringhoofdbureau' },
+  { value: 'G', text: 'Bureau principal de la circonscription germanophone / Hoofdbureau van de Duitstalige kieskring' },
+  { value: 'O', text: 'Bureau central de province / Centraal provinciaal bureau' },
+  { value: 'P', text: 'Bureau principal provincial / Provinciehoofdbureau' },
+  { value: 'L', text: 'Bureau principal de collège / Collegehoofdbureau' },
+  { value: 'R', text: 'Royaume / Koninkrijk' },
+];
+
 export default {
   types,
+  levels,
   getEntities(type) {
     return axios.get(`${API_URL_I}/entities/2019/${type}`).then(response => response.data);
   },
   getCandidates(type) {
     return axios.get(`${API_URL_I}/candidates/2019/${type}`).then(response => response.data);
   },
-  getResults(type) {
-    return axios.get(`${API_URL_R}/results/2019/${type}?test`).then(response => response.data);
+  getResults(type, isTest = false) {
+    return axios.get(`${API_URL_R}/results/2019/${type}${isTest ? '?test' : ''}`)
+      .then(response => response.data);
+  },
+  getDetailResults(type, level) {
+    return axios.get(`${API_URL_R}/results/2019/${type}/${level}?test`).then(response => response.data);
   },
 };
