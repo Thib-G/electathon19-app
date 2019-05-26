@@ -39,9 +39,13 @@
           <b-card v-for="e in resultsNested" :key="e.key" :header="e.name" class="mb-2">
             <b-list-group>
               <b-list-group-item v-for="l in e.values" :key="l.key">
-                <span class="dot mr-1"
-                  :style="{ 'background-color': `#${l.value.list.group.color}` }">
-                </span>
+                <svg :width="2 + (l.value.seats * 5)" height="12">
+                  <rect
+                    x="0" y="0"
+                    :width="2 + (l.value.seats * 5)"
+                    height="12"
+                    :style="{ fill: `#${l.value.list.group.color}` }" />
+                </svg>
                 {{ l.value.list.name }}: <b>{{ l.value.seats }}</b> seats
               </b-list-group-item>
             </b-list-group>
@@ -87,7 +91,7 @@ export default {
         .map(e => ({
           key: e.key,
           name: e.values[0].value.list.entity.name_en,
-          values: e.values.sort((a, b) => b.seats - a.seats),
+          values: e.values.sort((a, b) => b.value.seats - a.value.seats),
         }));
     },
     lastRefresh() {
