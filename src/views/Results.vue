@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Results (TEST)</h1>
+    <h1>Results <span v-if="isTest">(TEST)</span></h1>
     <b-card>
       <b-row>
         <b-col md="6" sm="12">
