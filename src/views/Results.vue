@@ -66,7 +66,7 @@ export default {
           key: k,
           value: this.resultsObj[k],
         }))
-        .filter(d => d.key !== 'count' && d.key !== '');
+        .filter(d => d.key !== 'count' && d.key !== '' && d.key !== 'date' && d.key !== 'time');
     },
     resultsNested() {
       return d3.nest()
