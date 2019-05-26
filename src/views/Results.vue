@@ -25,7 +25,7 @@
       </b-row>
       <b-row>
         <b-col>
-          <b-card v-for="e in resultsNested" :key="e.key" :header="e.name">
+          <b-card v-for="e in resultsNested" :key="e.key" :header="e.name" class="mb-2">
             <b-list-group>
               <b-list-group-item v-for="l in e.values" :key="l.key">
                 <span class="dot mr-1"
