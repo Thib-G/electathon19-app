@@ -24,10 +24,13 @@
             Loading...
           </span>
           <span v-else>
-            <a href @click.prevent="getResults">
-              <img src="@/assets/icons/refresh.svg" width="15" height="15" class="mr-1">Refresh
+            <span v-if="resultsObj">
+              <a href @click.prevent="getResults">
+                <img src="@/assets/icons/refresh.svg" width="15" height="15" class="mr-1">Refresh
               </a>
+              <small v-if="resultsObj">Last refresh at {{ lastRefresh }}</small>
             </span>
+          </span>
           <b-checkbox v-model="isTest" @change="getResultsNextTick">Test data</b-checkbox>
         </b-col>
       </b-row>
@@ -86,6 +89,12 @@ export default {
           name: e.values[0].value.list.entity.name_en,
           values: e.values.sort((a, b) => b.seats - a.seats),
         }));
+    },
+    lastRefresh() {
+      if (!this.resultsObj) {
+        return '';
+      }
+      return `${this.resultsObj.date} ${this.resultsObj.time}`;
     },
   },
   methods: {
