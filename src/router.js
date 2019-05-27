@@ -19,9 +19,17 @@ export default new Router({
     },
     {
       path: '/entities',
-      name: 'entities',
+      redirect: '/entities/CK',
       meta: {
         menu: true,
+        longName: 'Entities',
+      },
+    },
+    {
+      path: '/entities/:id',
+      name: 'entities',
+      meta: {
+        menu: false,
         longName: 'Entities',
       },
       component: () => import(/* webpackChunkName: "entities" */ './views/Entities.vue'),
@@ -37,9 +45,17 @@ export default new Router({
     },
     {
       path: '/results',
-      name: 'results',
+      redirect: '/results/CK',
       meta: {
         menu: true,
+        longName: 'Results',
+      },
+    },
+    {
+      path: '/results/:id',
+      name: 'results',
+      meta: {
+        menu: false,
         longName: 'Results',
       },
       component: () => import(/* webpackChunkName: "results" */ './views/Results.vue'),

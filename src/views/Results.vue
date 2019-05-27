@@ -10,7 +10,6 @@
             label-for="input-1"
           >
             <b-form-select
-              @change="getResults"
               id="input-1"
               v-model="selected"
               :options="options"
@@ -65,24 +64,39 @@ export default {
   data() {
     return {
       electathonService: ElectathonService,
-      selected: null,
       options: ElectathonService.types,
       resultsObj: null,
       isTest: false,
       loading: false,
     };
   },
+  mounted() {
+    this.getResults();
+  },
+  watch: {
+    selected() {
+      this.getResults();
+    },
+  },
   computed: {
+    selected: {
+      get() {
+        return this.$route.params.id;
+      },
+      set(newVal) {
+        this.$router.push(`/results/${newVal}`);
+      },
+    },
     results() {
       if (!this.resultsObj) {
         return [];
       }
       return Object.keys(this.resultsObj)
+        .filter(k => Number.isInteger(+k) && k !== '')
         .map(k => ({
           key: k,
           value: this.resultsObj[k],
-        }))
-        .filter(d => d.key !== 'count' && d.key !== '' && d.key !== 'date' && d.key !== 'time');
+        }));
     },
     resultsNested() {
       return d3.nest()

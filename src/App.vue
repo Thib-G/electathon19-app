@@ -4,9 +4,7 @@
     <b-container>
       <b-row class="mt-3">
         <b-col>
-          <keep-alive>
-            <router-view />
-          </keep-alive>
+          <router-view />
         </b-col>
       </b-row>
     </b-container>

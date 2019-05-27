@@ -10,7 +10,6 @@
             label-for="input-1"
           >
             <b-form-select
-              @change="getEntities"
               id="input-1"
               v-model="selected"
               :options="options"
@@ -36,12 +35,27 @@ export default {
   data() {
     return {
       electathonService: ElectathonService,
-      selected: null,
       options: ElectathonService.types,
       entitiesObj: null,
     };
   },
+  mounted() {
+    this.getEntities();
+  },
+  watch: {
+    selected() {
+      this.getEntities();
+    },
+  },
   computed: {
+    selected: {
+      get() {
+        return this.$route.params.id;
+      },
+      set(newVal) {
+        this.$router.push(`/entities/${newVal}`);
+      },
+    },
     entities() {
       if (!this.entitiesObj) {
         return [];
