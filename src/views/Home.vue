@@ -4,7 +4,7 @@
     <b-card>
       <h2>Playing with Belgian elections 2019 open data</h2>
       <ul>
-        <li v-for="r in $router.options.routes" :key="r.name">
+        <li v-for="r in navRoutes" :key="r.name">
           <router-link :to="r.path">{{ r.meta.longName }}</router-link>
         </li>
       </ul>
@@ -20,9 +20,13 @@
     </b-card>
   </div>
 </template>
-
 <script>
 export default {
   name: 'home',
+  computed: {
+    navRoutes() {
+      return this.$router.options.routes.filter(r => r.meta.menu);
+    },
+  },
 };
 </script>
