@@ -57,11 +57,14 @@ export default {
   data() {
     return {
       electathonService: ElectathonService,
-      selected: null,
-      selectedEntity: null,
+      selected: 'CK',
+      selectedEntity: 2224,
       options: ElectathonService.types,
       candidatesObj: null,
     };
+  },
+  created() {
+    this.getCandidates();
   },
   computed: {
     candidates() {
