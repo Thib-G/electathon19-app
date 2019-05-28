@@ -1,7 +1,8 @@
 <template>
-  <svg :width="width" :height="height">
-    <g class="donut" ref="donut" :transform="`translate(${width / 2},${height})`" />
-    <g class="text" ref="text" :transform="`translate(${width / 2}, ${height * .9})`">
+  <svg :viewBox="`0 0 ${w} ${h}`" class="svg-content"
+    preserveAspectRatio="xMinYMin meet">
+    <g class="donut" ref="donut" :transform="`translate(${w / 2},${h})`" />
+    <g class="text" ref="text" :transform="`translate(${w / 2}, ${h * .9})`">
       <text>{{ text }}</text>
     </g>
   </svg>
@@ -19,8 +20,8 @@ export default {
   },
   data() {
     return {
-      width: 400,
-      height: 200,
+      w: 400,
+      h: 200,
       text: '',
     };
   },
@@ -35,14 +36,14 @@ export default {
   computed: {
     pie() {
       return d3.pie()
-        .padAngle(0.005)
+        .padAngle(0.01)
         .sort(null)
         .startAngle(-Math.PI / 2)
         .endAngle(Math.PI / 2)
         .value(d => d.value.seats);
     },
     arc() {
-      const radius = Math.min(this.width, this.height);
+      const radius = Math.min(this.w, this.h);
       return d3.arc().innerRadius(radius * 0.67).outerRadius(radius - 1);
     },
     arcs() {
@@ -80,5 +81,11 @@ export default {
   }
   .text {
     text-anchor: middle;
+  }
+  .svg-content {
+    width: 100%;
+    height: 100%;
+    max-width: 400px;
+    max-height: 200px;
   }
 </style>
