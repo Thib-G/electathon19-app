@@ -10,6 +10,14 @@ export default new Router({
   routes: [
     {
       path: '/',
+      redirect: '/home',
+      meta: {
+        menu: false,
+        longName: 'indexRedirect',
+      },
+    },
+    {
+      path: '/home',
       name: 'home',
       meta: {
         menu: true,
