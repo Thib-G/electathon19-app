@@ -38,7 +38,13 @@ export default {
     return axios.get(`${API_URL_R}/results/2019/${type}${isTest ? '?test' : ''}`)
       .then(response => response.data);
   },
+  getSeats(type) {
+    return axios.get(`${API_URL_R}/seats/2019/${type}`)
+      .then(response => response.data);
+  },
   getDetailResults(type, level) {
-    return axios.get(`${API_URL_R}/results/2019/${type}/${level}?test`).then(response => response.data);
+    return axios.get(`${API_URL_R}/results/2019/${type}/${level}`)
+      .then(response => response.data)
+      .catch(() => ({}));
   },
 };

@@ -58,10 +58,12 @@ export default {
   methods: {
     getDetailResults() {
       const type = this.selected;
-      const level = this.selectedOption;
-      this.electathonService.getDetailResults(type, level).then((data) => {
-        this.resultsObj = data;
-      });
+      const level = this.selectedLevel;
+      if (type && level) {
+        this.electathonService.getDetailResults(type, level).then((data) => {
+          this.resultsObj = data;
+        });
+      }
     },
   },
 };

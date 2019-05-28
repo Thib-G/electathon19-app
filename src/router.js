@@ -45,20 +45,45 @@ export default new Router({
     },
     {
       path: '/results',
-      redirect: '/results/CK',
+      redirect: '/seats',
       meta: {
-        menu: true,
+        menu: false,
         longName: 'Results',
       },
     },
     {
       path: '/results/:id',
-      name: 'results',
+      redirect: '/seats/:id',
       meta: {
         menu: false,
         longName: 'Results',
       },
-      component: () => import(/* webpackChunkName: "results" */ './views/Results.vue'),
+    },
+    // {
+    //   path: '/results/:id',
+    //   name: 'results',
+    //   meta: {
+    //     menu: false,
+    //     longName: 'Results',
+    //   },
+    //   component: () => import(/* webpackChunkName: "results" */ './views/Results.vue'),
+    // },
+    {
+      path: '/seats',
+      redirect: '/seats/CK',
+      meta: {
+        menu: true,
+        longName: 'Seats',
+      },
+    },
+    {
+      path: '/seats/:id',
+      name: 'seats',
+      meta: {
+        menu: false,
+        longName: 'Seats',
+      },
+      component: () => import(/* webpackChunkName: "seats" */ './views/Seats.vue'),
     },
     // {
     //   path: '/detail-results',
