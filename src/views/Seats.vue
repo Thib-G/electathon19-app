@@ -33,26 +33,32 @@
       </b-row>
       <b-row>
         <b-col>
-          <b-card :header="selectedText" class="mb-2">
-            <b-card class="mb-2 text-center">
-              <HalfDonutComponent :seats="seats" />
-            </b-card>
-            <b-list-group>
-              <b-list-group-item v-for="item in seats" :key="item.key"
-                class="d-flex align-items-center justify-content-between">
-                <span>
-                  <svg :width="2 + (item.value.seats * 5)" height="12">
-                    <rect
-                      x="0" y="0"
-                      :width="2 + (item.value.seats * 5)"
-                      height="12"
-                      :style="{ fill: `#${item.value.group.color}` }" />
-                  </svg>
-                  {{ item.value.group.name }}: <b>{{ item.value.seats }}</b> seats
-                </span>
-                <span class="small">
-                  F: <b>{{ item.value.women }}</b> M: <b>{{ item.value.men }}</b>
-                </span>
+          <b-card :header="selectedText" class="mb-2" no-body>
+            <b-card-body>
+              <b-card class="mb-2 text-center">
+                <HalfDonutComponent :seats="seats" />
+              </b-card>
+            </b-card-body>
+            <b-list-group flush>
+              <b-list-group-item v-for="item in seats" :key="item.key">
+                <b-row>
+                  <b-col class="d-flex align-items-center justify-content-between"
+                    md="6" offset-md="3">
+                    <span>
+                      <svg :width="2 + (item.value.seats * 5)" height="12">
+                        <rect
+                          x="0" y="0"
+                          :width="2 + (item.value.seats * 5)"
+                          height="12"
+                          :style="{ fill: `#${item.value.group.color}` }" />
+                      </svg>
+                      <br />{{ item.value.group.name }}: <b>{{ item.value.seats }}</b> seats
+                    </span>
+                    <span class="small text-right">
+                      F: <b>{{ item.value.women }}</b><br />M: <b>{{ item.value.men }}</b>
+                    </span>
+                  </b-col>
+                </b-row>
               </b-list-group-item>
             </b-list-group>
           </b-card>
