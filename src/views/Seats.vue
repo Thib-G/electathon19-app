@@ -34,6 +34,9 @@
       <b-row>
         <b-col>
           <b-card :header="selectedText" class="mb-2">
+            <b-card class="mb-2 text-center">
+              <HalfDonutComponent :seats="seats" />
+            </b-card>
             <b-list-group>
               <b-list-group-item v-for="item in seats" :key="item.key"
                 class="d-flex align-items-center justify-content-between">
@@ -61,6 +64,8 @@
 
 <script>
 import ElectathonService from '@/services/electathon-service';
+
+import HalfDonutComponent from '@/components/HalfDonutComponent.vue';
 
 export default {
   data() {
@@ -115,6 +120,9 @@ export default {
         });
       }
     },
+  },
+  components: {
+    HalfDonutComponent,
   },
 };
 </script>
