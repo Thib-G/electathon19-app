@@ -52,7 +52,8 @@
                           height="12"
                           :style="{ fill: `#${item.value.group.color}` }" />
                       </svg>
-                      <br />{{ item.value.group.name }}: <b>{{ item.value.seats }}</b> seats
+                      <br />{{ item.value.group.name }}: <b>{{ item.value.seats }}</b>
+                      <span v-if="item.value.seats > 1"> seats</span><span v-else> seat</span>
                     </span>
                     <span class="small text-right">
                       F: <b>{{ item.value.women }}</b><br />M: <b>{{ item.value.men }}</b>

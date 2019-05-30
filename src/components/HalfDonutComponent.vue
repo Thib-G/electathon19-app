@@ -60,7 +60,7 @@ export default {
         .attr('fill', d => `#${d.data.value.group.color}`)
         .attr('d', this.arc)
         .on('mouseover', (d) => {
-          this.text = `${d.data.value.group.name}: ${d.data.value.seats} seats`;
+          this.text = `${d.data.value.group.name}: ${d.data.value.seats} seat${d.data.value.seats > 1 ? 's' : ''}`;
         })
         .on('mouseout', () => {
           this.text = '';
