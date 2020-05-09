@@ -102,15 +102,15 @@ export default {
       },
     },
     selectedText() {
-      return this.options.find(x => x.value === this.selected).text;
+      return this.options.find((x) => x.value === this.selected).text;
     },
     seats() {
       if (!this.seatsObj) {
         return [];
       }
       return Object.keys(this.seatsObj)
-        .filter(k => Number.isInteger(+k) && k !== '')
-        .map(k => ({
+        .filter((k) => Number.isInteger(+k) && k !== '')
+        .map((k) => ({
           key: k,
           value: this.seatsObj[k],
         }))

@@ -22,7 +22,7 @@
 export default {
   computed: {
     navRoutes() {
-      return this.$router.options.routes.filter(r => r.meta.menu);
+      return this.$router.options.routes.filter((r) => r.meta.menu);
     },
   },
 };

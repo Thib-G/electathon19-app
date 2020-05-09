@@ -72,7 +72,7 @@ export default {
         return [];
       }
       return Object.keys(this.candidatesObj)
-        .map(k => ({
+        .map((k) => ({
           key: k,
           value: this.candidatesObj[k],
         }))
@@ -81,16 +81,16 @@ export default {
         .sort((a, b) => a.value.list.entity.id - b.value.list.entity.id);
     },
     filteredCandidates() {
-      return this.candidates.filter(d => d.value.list.entity.id === this.selectedEntity);
+      return this.candidates.filter((d) => d.value.list.entity.id === this.selectedEntity);
     },
     entities() {
       return d3.nest()
-        .key(d => d.value.list.entity.id)
-        .rollup(leaves => leaves[0].value.list.entity.name_en)
+        .key((d) => d.value.list.entity.id)
+        .rollup((leaves) => leaves[0].value.list.entity.name_en)
         .entries(this.candidates);
     },
     entitiesOptions() {
-      return this.entities.map(d => ({
+      return this.entities.map((d) => ({
         value: +d.key,
         text: d.value,
       }));

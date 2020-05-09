@@ -40,14 +40,14 @@ export default {
         .sort(null)
         .startAngle(-Math.PI / 2)
         .endAngle(Math.PI / 2)
-        .value(d => d.value.seats);
+        .value((d) => d.value.seats);
     },
     arc() {
       const radius = Math.min(this.w, this.h);
       return d3.arc().innerRadius(radius * 0.67).outerRadius(radius - 1);
     },
     arcs() {
-      return this.pie(this.seats.filter(d => d.value.seats > 0));
+      return this.pie(this.seats.filter((d) => d.value.seats > 0));
     },
   },
   methods: {
@@ -57,7 +57,7 @@ export default {
         .data(this.arcs)
         .join('path')
         .attr('class', 'arc')
-        .attr('fill', d => `#${d.data.value.group.color}`)
+        .attr('fill', (d) => `#${d.data.value.group.color}`)
         .attr('d', this.arc)
         .on('mouseover', (d) => {
           this.text = `${d.data.value.group.name}: ${d.data.value.seats} seat${d.data.value.seats > 1 ? 's' : ''}`;

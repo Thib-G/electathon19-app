@@ -59,19 +59,19 @@ export default {
   computed: {
     candidatesByEntityListType() {
       return d3.nest()
-        .key(d => d.value.list.entity.id)
+        .key((d) => d.value.list.entity.id)
         .entries(this.candidates)
-        .map(entity => ({
+        .map((entity) => ({
           key: entity.key,
           name: entity.values[0].value.list.entity.name_en,
           values: d3.nest()
-            .key(d => `${d.value.list.nr} ${d.value.list.name}`)
+            .key((d) => `${d.value.list.nr} ${d.value.list.name}`)
             .entries(entity.values)
-            .map(list => ({
+            .map((list) => ({
               key: list.key,
               color: `#${list.values[0].value.list.group.color}`,
               values: d3.nest()
-                .key(d => this.types[d.value.type])
+                .key((d) => this.types[d.value.type])
                 .entries(list.values),
             })),
         }));

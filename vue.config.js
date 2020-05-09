@@ -5,5 +5,6 @@ module.exports = {
   transpileDependencies: [
     'd3-array',
     'd3-collection',
+    'bootstrap-vue',
   ],
 };

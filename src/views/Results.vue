@@ -92,17 +92,17 @@ export default {
         return [];
       }
       return Object.keys(this.resultsObj)
-        .filter(k => Number.isInteger(+k) && k !== '')
-        .map(k => ({
+        .filter((k) => Number.isInteger(+k) && k !== '')
+        .map((k) => ({
           key: k,
           value: this.resultsObj[k],
         }));
     },
     resultsNested() {
       return d3.nest()
-        .key(d => d.value.list.entity.id)
+        .key((d) => d.value.list.entity.id)
         .entries(this.results)
-        .map(e => ({
+        .map((e) => ({
           key: e.key,
           name: e.values[0].value.list.entity.name_en,
           values: e.values.sort((a, b) => b.value.seats - a.value.seats),

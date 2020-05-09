@@ -60,7 +60,7 @@ export default {
       if (!this.entitiesObj) {
         return [];
       }
-      return Object.keys(this.entitiesObj).map(k => this.entitiesObj[k]);
+      return Object.keys(this.entitiesObj).map((k) => this.entitiesObj[k]);
     },
   },
   methods: {

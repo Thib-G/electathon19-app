@@ -25,7 +25,7 @@ export default {
   name: 'home',
   computed: {
     navRoutes() {
-      return this.$router.options.routes.filter(r => r.meta.menu);
+      return this.$router.options.routes.filter((r) => r.meta.menu);
     },
   },
 };

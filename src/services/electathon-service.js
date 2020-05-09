@@ -29,22 +29,22 @@ export default {
   types,
   levels,
   getEntities(type) {
-    return axios.get(`${API_URL_I}/entities/2019/${type}`).then(response => response.data);
+    return axios.get(`${API_URL_I}/entities/2019/${type}`).then((response) => response.data);
   },
   getCandidates(type) {
-    return axios.get(`${API_URL_I}/candidates/2019/${type}`).then(response => response.data);
+    return axios.get(`${API_URL_I}/candidates/2019/${type}`).then((response) => response.data);
   },
   getResults(type, isTest = false) {
     return axios.get(`${API_URL_R}/results/2019/${type}${isTest ? '?test' : ''}`)
-      .then(response => response.data);
+      .then((response) => response.data);
   },
   getSeats(type) {
     return axios.get(`${API_URL_R}/seats/2019/${type}`)
-      .then(response => response.data);
+      .then((response) => response.data);
   },
   getDetailResults(type, level) {
     return axios.get(`${API_URL_R}/results/2019/${type}/${level}`)
-      .then(response => response.data)
+      .then((response) => response.data)
       .catch(() => ({}));
   },
 };
