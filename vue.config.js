@@ -3,8 +3,8 @@ module.exports = {
     ? '/electathon19-app/'
     : '/',
   transpileDependencies: [
-    'd3-array',
-    'd3-collection',
+    /d3-.+/,
+    'internmap',
     'bootstrap-vue',
   ],
 };
