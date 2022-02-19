@@ -59,7 +59,7 @@ export default {
         .attr('class', 'arc')
         .attr('fill', (d) => `#${d.data.value.group.color}`)
         .attr('d', this.arc)
-        .on('mouseover', (d) => {
+        .on('mouseover', (e, d) => {
           this.text = `${d.data.value.group.name}: ${d.data.value.seats} seat${d.data.value.seats > 1 ? 's' : ''}`;
         })
         .on('mouseout', () => {

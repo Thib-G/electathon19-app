@@ -22,7 +22,7 @@
 </template>
 <script>
 export default {
-  name: 'home',
+  name: 'HomeView',
   computed: {
     navRoutes() {
       return this.$router.options.routes.filter((r) => r.meta.menu);

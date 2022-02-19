@@ -10,7 +10,9 @@
         :r="width * 0.3"
         class="cbox"
         :class="{ clicked }"
-        @click.prevent="clicked = !clicked"/>
+        @click.prevent="clicked = !clicked"
+        @keydown.prevent="clicked = !clicked"
+      />
     </g>
   </svg>
 </template>

@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import Home from './views/Home.vue';
+import Home from './views/HomeView.vue';
 
 Vue.use(Router);
 
@@ -40,7 +40,7 @@ const router = new Router({
         menu: false,
         longName: 'Entities',
       },
-      component: () => import(/* webpackChunkName: "entities" */ './views/Entities.vue'),
+      component: () => import(/* webpackChunkName: "entities" */ './views/EntitiesView.vue'),
     },
     {
       path: '/candidates',
@@ -49,7 +49,7 @@ const router = new Router({
         menu: true,
         longName: 'Candidates',
       },
-      component: () => import(/* webpackChunkName: "candidates" */ './views/Candidates.vue'),
+      component: () => import(/* webpackChunkName: "candidates" */ './views/CandidatesView.vue'),
     },
     {
       path: '/results',
@@ -91,7 +91,7 @@ const router = new Router({
         menu: false,
         longName: 'Seats',
       },
-      component: () => import(/* webpackChunkName: "seats" */ './views/Seats.vue'),
+      component: () => import(/* webpackChunkName: "seats" */ './views/SeatsView.vue'),
     },
     // {
     //   path: '/detail-results',
@@ -113,7 +113,7 @@ const router = new Router({
       // route level code-splitting
       // this generates a separate chunk (about.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => import(/* webpackChunkName: "about" */ './views/About.vue'),
+      component: () => import(/* webpackChunkName: "about" */ './views/AboutView.vue'),
     },
   ],
 });

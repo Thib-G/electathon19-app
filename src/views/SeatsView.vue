@@ -24,8 +24,12 @@
           </span>
           <span v-else>
             <span v-if="seatsObj">
-              <a href @click.prevent="getSeats">
-                <img src="@/assets/icons/refresh.svg" width="15" height="15" class="mr-1">Refresh
+              <a href @click.prevent="getSeats" @keydown.prevent="getSeats">
+                <img
+                  alt="Refresh"
+                  src="@/assets/icons/refresh.svg"
+                  width="15" height="15" class="mr-1"
+                >Refresh
               </a>
             </span>
           </span>
