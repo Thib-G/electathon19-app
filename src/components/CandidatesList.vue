@@ -7,7 +7,8 @@
           v-for="entity in candidatesByEntityListType"
           :key="entity.key"
           :header="entity.name"
-          class="mt-2">
+          class="mt-2"
+        >
           <b-card
             v-for="list in entity.values"
             :key="list.key"
@@ -16,15 +17,30 @@
             :style="{
               'border-color': list.color,
               'border-width': '3px',
-            }">
+            }"
+          >
             <div slot="header">
-              <span class="dot mr-1" :style="{ 'background-color': list.color }"></span>
+              <span
+                class="dot mr-1"
+                :style="{ 'background-color': list.color }"
+              />
               {{ list.key }}
             </div>
             <b-card-group deck>
-              <b-card v-for="type in list.values" :key="type.key" :header="type.key">
-                <div v-for="c in type.values" :key="c.key" class="mb-1">
-                  <CheckboxVoting :width="24" :height="24" />
+              <b-card
+                v-for="type in list.values"
+                :key="type.key"
+                :header="type.key"
+              >
+                <div
+                  v-for="c in type.values"
+                  :key="c.key"
+                  class="mb-1"
+                >
+                  <CheckboxVoting
+                    :width="24"
+                    :height="24"
+                  />
                   {{ c.value.nr }} {{ c.value.name }}
                 </div>
               </b-card>

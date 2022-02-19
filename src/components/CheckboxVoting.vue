@@ -1,7 +1,13 @@
 <template>
-  <svg :width="width" :height="height">
+  <svg
+    :width="width"
+    :height="height"
+  >
     <g>
-      <rect :height="height" :width="width" />
+      <rect
+        :height="height"
+        :width="width"
+      />
     </g>
     <g :transform="`translate(${width / 2},${height / 2})`">
       <circle

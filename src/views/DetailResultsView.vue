@@ -3,7 +3,10 @@
     <h1>Detailed results</h1>
     <b-card>
       <b-row>
-        <b-col md="6" sm="12">
+        <b-col
+          md="6"
+          sm="12"
+        >
           <b-form-group
             id="input-group-1"
             label="Select election type:"
@@ -16,10 +19,13 @@
               :options="options"
               required
               placeholder="Select type"
-            ></b-form-select>
+            />
           </b-form-group>
         </b-col>
-        <b-col md="6" sm="12">
+        <b-col
+          md="6"
+          sm="12"
+        >
           <b-form-group
             id="input-group-2"
             label="Select level:"
@@ -33,7 +39,7 @@
               required
               placeholder="Select level"
               :disabled="levelOptions.length === 0"
-            ></b-form-select>
+            />
           </b-form-group>
         </b-col>
       </b-row>

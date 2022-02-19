@@ -3,7 +3,10 @@
     <h1>Entities</h1>
     <b-card>
       <b-row>
-        <b-col md="6" sm="12">
+        <b-col
+          md="6"
+          sm="12"
+        >
           <b-form-group
             id="input-group-1"
             label="Select election type:"
@@ -15,13 +18,17 @@
               :options="options"
               required
               placeholder="Select type"
-            ></b-form-select>
+            />
           </b-form-group>
         </b-col>
       </b-row>
       <b-row>
         <b-col>
-          <b-table :items="entities" class="small-text" small />
+          <b-table
+            :items="entities"
+            class="small-text"
+            small
+          />
         </b-col>
       </b-row>
     </b-card>

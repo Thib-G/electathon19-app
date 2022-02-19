@@ -1,8 +1,19 @@
 <template>
-  <svg :viewBox="`0 0 ${w} ${h}`" class="svg-content"
-    preserveAspectRatio="xMinYMin meet">
-    <g class="donut" ref="donut" :transform="`translate(${w / 2},${h})`" />
-    <g class="text" ref="text" :transform="`translate(${w / 2}, ${h * .9})`">
+  <svg
+    :viewBox="`0 0 ${w} ${h}`"
+    class="svg-content"
+    preserveAspectRatio="xMinYMin meet"
+  >
+    <g
+      class="donut"
+      ref="donut"
+      :transform="`translate(${w / 2},${h})`"
+    />
+    <g
+      class="text"
+      ref="text"
+      :transform="`translate(${w / 2}, ${h * .9})`"
+    >
       <text>{{ text }}</text>
     </g>
   </svg>
